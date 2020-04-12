@@ -1,0 +1,25 @@
+<div class="container">
+  <h2>User info</h2>
+
+  <%= form_for(@user) do |f| %>
+    <div class="field">
+      <label for="user_name">Name</label>
+      <%= f.text_field :name, class:"name", id:"user_name" %>
+    </div>
+
+    <div class="field">
+      <label for="user_image">Image</label>
+      <%= f.attachment_field :profile_image, placeholder:"ファイルを選択", class:"user_image", id:"user_profile_image" %>
+    </div>
+
+    <div class="field">
+      <label for="user_introduction">Introduction</label>
+      <%= f.text_field :introduction, class:"introduction", id:"user_introduction" %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "Update User" %>
+    </div>
+  <% end %>
+
+</div>
