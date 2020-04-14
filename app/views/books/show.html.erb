@@ -1,3 +1,6 @@
+<%= flash[:notice] %>
+<%= render 'layouts/error_messages', model: @book %>
+
 <%= render 'layouts/sidebar', user: @user, book: @book %>
 
 <div class="col-xs-9">
