@@ -1,25 +1,25 @@
-<%= flash[:notice] %>
-<%= render 'layouts/error_messages', model: @book %>
+<div class="row">
 
-<%= render 'layouts/sidebar', user: @user, book: @book %>
+  <%= render 'layouts/sidebar', user: @user, book: @book %>
 
-<div class="col-xs-9">
-  <h2>Book detail</h2>
-
-  <table class="table">
-    <tbody>
-      <tr>
-        <td><%= attachment_image_tag @user, :profile_image, :fill, 50, 50, format: 'jpeg', class: "attachment user profile_image fallback" %><br>
-          <%= link_to @user.name, user_path(@user) %>
-        </td>
-        <td><%= link_to @book2.title, book_path(@book2) %></td>
-        <td><%= @book2.body %></td>
-        <% if @user == current_user %>
-          <td><%= link_to "Edit", edit_book_path(@book2), class: "btn-sm btn-success" %></td>
-          <td><%= link_to "Destroy", book_path(@book2), method: :delete, "data_confirm" => "本当に消しますか？", class: "btn-sm btn-danger" %></td>
-        <% end %>
-      </tr>
-    </tbody>
-  </table>
+  <div class="col-xs-9">
+    <h2>Book detail</h2>
+    <table class="table">
+      <tbody>
+        <tr>
+          <td>
+            <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', class: "attachment user profile_image" %><br>
+            <%= link_to @user.name, user_path(@user) %>
+          </td>
+          <td><%= link_to @book2.title, book_path(@book2) %></td>
+          <td><%= @book2.body %></td>
+          <% if @user == current_user %>
+            <td><%= link_to "Edit", edit_book_path(@book2), class: "btn-sm btn-success" %></td>
+            <td><%= link_to "Destroy", book_path(@book2), method: :delete, "data_confirm" => "本当に消しますか？", class: "btn-sm btn-danger" %></td>
+          <% end %>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 
 </div>
