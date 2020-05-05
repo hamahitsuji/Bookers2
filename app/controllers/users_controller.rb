@@ -25,6 +25,16 @@ class UsersController < ApplicationController
 		end
 	end
 
+	def following
+		@user = User.find(params[:id])
+		@users = @user.following.all
+	end
+
+	def followers
+		@user = User.find(params[:id])
+		@users = @user.followers.all
+	end
+
 	def ensure_correct_user
 		@user = User.find(params[:id])
 		if @user.id != current_user.id

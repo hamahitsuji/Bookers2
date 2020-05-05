@@ -1,23 +1,46 @@
 <div class="col-xs-3">
 
   <h2>User info</h2>
-    <%= attachment_image_tag user, :profile_image, size: '100x100', format: 'jpeg', class: "attachment user profile_image fallback", fallback: "no_image.jpg" %>
-    <table class="table">
-      <tbody>
-        <tr>
-    	   <th>name</th>
-    	   <th><%= user.name %></th>
-        </tr>
-        <tr>
-    	   <th>introduction</th>
-    	   <th><%= user.introduction %></th>
-        </tr>
-      </tbody>
-    </table>
+  <%= attachment_image_tag user, :profile_image, size: '100x100', format: 'jpeg', class: "attachment user profile_image fallback", fallback: "no_image.jpg" %>
+  <table class="table">
+    <tbody>
+      <tr>
+  	   <th>name</th>
+  	   <th><%= user.name %></th>
+      </tr>
+      <tr>
+  	   <th>introduction</th>
+  	   <th><%= user.introduction %></th>
+      </tr>
+      <tr>
+        <th>follows</th>
+        <th><%= link_to user.following.count, following_user_path(user) %></th>
+      </tr>
+      <tr>
+        <th>followers</th>
+        <th><%= link_to user.followers.count, followers_user_path(user) %></th>
+      </tr>
+    </tbody>
+  </table>
 
-  <div class="row">
-    <%= link_to "", edit_user_path(user), class: "col-xs-12 btn btn-default glyphicon glyphicon-wrench" %>
-  </div>
+  <% if user == current_user %>
+    <div class="row">
+      <%= link_to "", edit_user_path(user), class: "col-xs-12 btn btn-default glyphicon glyphicon-wrench" %>
+    </div>
+  <% else %>
+    <div id="follow_form">
+      <% if current_user.following?(user) %>
+        <%= form_for(current_user.active_relationships.find_by(followed_id: user.id), html: { method: :delete }) do |f| %>
+          <%= f.submit "フォロー外す", class: "btn  btn-primary" %>
+        <% end %>
+      <% else %>
+        <%= form_for(current_user.active_relationships.build) do |f| %>
+          <div><%= hidden_field_tag :followed_id, user.id %></div>
+          <%= f.submit "フォローする", class: "btn btn-success" %>
+        <% end %>
+      <% end %>
+    </div>
+  <% end %>
 
   <h2>New book</h2>
   <%= form_for(book) do |f| %>
