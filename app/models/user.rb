@@ -28,11 +28,17 @@ class User < ApplicationRecord
     following.include?(other_user)
   end
 
-  def User.search(search, user_or_book)
-    if user_or_book == "1"
-       User.where(['name LIKE ?', "%#{search}%"])
+  def User.search(search, how_search)
+    if how_search == "1"
+      User.where(['name LIKE ?', "#{search}"])
+    elsif how_search == "2"
+      User.where(['name LIKE ?', "#{search}%"])
+    elsif how_search == "3"
+      User.where(['name LIKE ?', "%#{search}"])
+    elsif how_search == "4"
+      User.where(['name LIKE ?', "%#{search}%"])
     else
-       User.all
+      User.all
     end
   end
 
