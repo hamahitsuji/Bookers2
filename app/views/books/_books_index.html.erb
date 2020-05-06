@@ -10,7 +10,7 @@
   <tbody>
     <% books.each do |book|  %>
       <tr id="index_post_<%= book.id %>">
-        <%= render 'index_post', book: book %>
+        <%= render 'books/index_post', book: book %>
       </tr>
     <% end %>
   </tbody>
