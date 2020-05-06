@@ -1,0 +1,2 @@
+$('#index_post_<%= @book.id %>').html("<%= j(render 'books/index_post', book: @book) %>");
+$('#show_post_<%= @book.id %>').html("<%= j(render 'books/show_post', book: @book) %>");
