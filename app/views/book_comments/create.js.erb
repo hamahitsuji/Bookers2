@@ -1,2 +1,3 @@
 $('#comment-table').html("<%= j(render 'books/comment_table', book: @book) %>");
+$('#show_post_<%= @book.id %>').html("<%= j(render 'books/show_post', book: @book) %>");
 $('textarea').val('');
