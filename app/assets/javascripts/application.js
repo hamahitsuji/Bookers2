@@ -16,6 +16,7 @@
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require_tree .
+//= require jquery.jpostal
 
 $(function(){
   $('.jquery').on('click', function(){
