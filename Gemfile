@@ -70,8 +70,7 @@ gem 'jp_prefecture', '~> 0.10.0'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'jquery-rails'
 
-gem 'simple_form'
-
+gem 'geocoder'
 gem 'dotenv-rails'
 
 group :production do
