@@ -54,7 +54,7 @@ class User < ApplicationRecord
   end
 
   def address
-    [address_city, address_street].compact.join
+    [address_city, address_street].compact.join(',')
   end
 
   geocoded_by :address

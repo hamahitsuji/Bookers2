@@ -12,13 +12,3 @@ User.create!(
   password: 'rmcf1744',
   introduction: '管理者アカウントです'
   )
-
-
-20.times do |i|
-  User.create!(
-    name:"#{i}#{i}",
-    email: "#{i}@#{i}",
-    password: "#{i}#{i}#{i}#{i}#{i}#{i}",
-    introduction: "週に#{i}冊は本読んでます！よろしくお願いします！"
-   )
-end
