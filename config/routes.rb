@@ -3,7 +3,10 @@ Rails.application.routes.draw do
   get 'home/about'
   get 'search' => 'searches#search'
 
-  devise_for :users
+  devise_for :users, controllers: {
+    registrations: 'users/registrations'
+  }
+
   resources :users, only: [:index, :show, :edit, :update] do
     member do
       get :following, :followers
