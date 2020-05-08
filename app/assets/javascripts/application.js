@@ -18,13 +18,8 @@
 //= require_tree .
 //= require jquery.jpostal
 
-$(function(){
-  $('.jquery').on('click', function(){
-    $(this).css('color','red');
-  });
-});
 
-$(function(){
+$(document).on('turbolinks:load', function(){
   $("#theTarget").skippr({
       // スライドショーの変化 ("fade" or "slide")
       transition : 'slide',
