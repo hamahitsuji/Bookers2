@@ -1,0 +1,30 @@
+<h2>
+  <% @room.users.each do |user| %>
+    <% if user != current_user %>
+      <%= user.name %>
+    <% end %>
+  <% end %>
+  さんとのチャット
+</h2>
+
+<div class="row">
+  <div class="col-xs-5">
+    <% @chat_logs.each do |chat_log| %>
+      <% if chat_log.user == current_user %>
+        <div class="text-right">
+          <%= chat_log.message %>
+        </div>
+      <% else %>
+        <div class="text-left">
+          <%= chat_log.message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+
+<div id="chat-form">
+  <%= form_with(model: [@room, @chat]) do |f| %>
+    <%= f.text_field :message %>
+  <% end %>
+</div>

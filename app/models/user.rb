@@ -16,6 +16,10 @@ class User < ApplicationRecord
   has_many :following, through: :active_relationships, source: :followed #複数のフォローするユーザを持つ
   has_many :followers, through: :passive_relationships, source: :follower #複数のフォローされるユーザを持つ
 
+  has_many :chats
+  has_many :user_rooms
+  has_many :rooms, through: :user_rooms
+
   def follow(other_user)
     active_relationships.create(followed_id: other_user.id)
   end
@@ -61,3 +65,4 @@ class User < ApplicationRecord
   after_validation :geocode, if: :address_city_changed?
 
 end
+

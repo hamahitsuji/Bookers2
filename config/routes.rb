@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'chats/show'
   root 'home#top'
   get 'home/about'
   get 'search' => 'searches#search'
@@ -19,4 +20,9 @@ Rails.application.routes.draw do
   end
 
   resources :relationships, only: [:create, :destroy]
+
+  resources :rooms, only: [:create] do
+    resource :chats, only: [:create, :show]
+  end
+
 end

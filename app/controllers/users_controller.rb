@@ -9,6 +9,7 @@ class UsersController < ApplicationController
 	def show
 		@user = User.find(params[:id])
 		@book = Book.new
+		@room = Room.new
 	end
 
 	def edit
@@ -47,3 +48,4 @@ class UsersController < ApplicationController
 		params.require(:user).permit(:name, :introduction, :profile_image)
 	end
 end
+
