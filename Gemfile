@@ -73,6 +73,8 @@ gem 'jquery-rails'
 gem 'geocoder'
 gem 'dotenv-rails'
 
+gem 'whenever', require: false
+
 group :production do
   gem 'mysql2'
 end
