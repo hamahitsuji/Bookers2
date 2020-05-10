@@ -29,12 +29,13 @@
     </div>
   <% else %>
     <div id="chat-link">
-      <%= form_for(@room) do |f| %>
-        <div><%= hidden_field_tag :user_id, user.id %></div>
-        <%= f.submit "chatを始める", class: "btn" %>
+      <% if current_user != user %>
+        <%= link_to 'chatを始める', chat_path(user.id)%>
+        <!-- chatのidはmessageを識別するためではなく、chatコントローラでroomを識別するためにある。
+          （messageは一覧で表示するだけなので、識別する必要がない。） -->
       <% end %>
     </div>
-    <div id="follow_form">
+    <div id="follow-form">
       <% if current_user.following?(user) %>
         <%= form_for(current_user.active_relationships.find_by(followed_id: user.id), html: { method: :delete }) do |f| %>
           <%= f.submit "フォロー外す", class: "btn  btn-primary" %>
