@@ -79,27 +79,59 @@ div.field, div.actions {
 }
 
 
+
+
+
+#container {
+	display: block;
+  width: 980px;
+  height: 400px;
+  margin: 0 auto;
+}
+
+#theTarget {
+	margin : 0 auto;
+  position : relative;
+  width: 980px;
+  height: 400px;
+}
+
 .image1 {
-background-image: image-url("image1.jpg");
+	background-image: image-url("image1.jpg");
 }
-
 .image2 {
-background-image: image-url("image2.jpg");
+	background-image: image-url("image2.jpg");
 }
-
 .image3 {
-background-image: image-url("image3.jpg");
+	background-image: image-url("image3.jpg");
 }
-
 .image4 {
-background-image: image-url("image4.jpg");
+	background-image: image-url("image4.jpg");
 }
-
 .image5 {
-background-image: image-url("image5.jpg");
+	background-image: image-url("image5.jpg");
 }
 
-
-#container{
-  height: 500px;
+#slideshow {
+	position: relative;
+  width: 980px;
+  margin-right: auto;
+  margin-left: auto;
 }
+
+.welcom-text {
+	display: block;
+  width: 980px;
+  height: 400px;
+  background-color: rgba(0, 0, 0, 0.3);
+  color: #fff;
+  text-align: center;
+  padding-top: 150px;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+}
+
+.welcom-text p {
+}
+
